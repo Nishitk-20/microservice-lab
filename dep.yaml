@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms78-nginx-deployment
+  labels:
+    app: ms78-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ms78-nginx
+  template:
+    metadata:
+      labels:
+        app: ms78-nginx
+    spec:
+      containers:
+      - name: nodeapp
+        image: muskangupta24/nodeapp
+        ports:
+        - containerPort: 8080
